@@ -160,9 +160,31 @@ namespace feeder_parser
             cmd.ExecuteNonQuery();
         }
 
+        public static void InsertMatchRow(SqliteConnection conn, int week, int teamId, int teamScore, int enemyTeamId, int enemyTeamScore)
+        {
+            using SqliteCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "INSERT INTO matches (week, teamId, score, enemyTeamId, enemyTeamScore) " +
+                "VALUES (@week, @teamId, @score, @enemyTeamId, @enemyTeamScore)";
+            cmd.Parameters.AddWithValue("@week", week);
+            cmd.Parameters.AddWithValue("@teamId", teamId);
+            cmd.Parameters.AddWithValue("@score", teamScore);
+            cmd.Parameters.AddWithValue("@enemyTeamId", enemyTeamId);
+            cmd.Parameters.AddWithValue("@enemyTeamScore", enemyTeamScore);
+            cmd.ExecuteNonQuery();
+        }
+
+        public static void InsertTgStatsRow(SqliteConnection conn, string gameId, int teamId, int score, int enemyTeamId, int enemyTeamScore, string color)
+        {
+            using SqliteCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "INSERT INTO tgStats VALUES (@gameId, @teamId, @score, @enemyTeamId, @enemyTeamScore, @color)";
+            cmd.Parameters.AddWithValue("@gameId", gameId);
+
+            cmd.ExecuteNonQuery();
+        }
+
         static void Main(string[] args)
         {
-            using SqliteConnection conn = new SqliteConnection("Data Source=C:\\Users\\Ben\\Programs\\td7\\feeder-parser\\stats.db");
+            using SqliteConnection conn = new SqliteConnection("Data Source=C:\\Users\\bkandel\\Programs\\td7\\feeder-parser\\stats.db");
             conn.Open();
 
             var cmd = conn.CreateCommand();
@@ -171,7 +193,7 @@ namespace feeder_parser
             cmd.ExecuteNonQuery();
             cmd.Dispose();
 
-            string fileDir = @"C:\Users\Ben\Programs\td7\feeder-parser";
+            string fileDir = @"C:\Users\bkandel\Programs\td7\feeder-parser";
             string[] lines = File.ReadAllLines(Path.Combine(fileDir, "players.csv"));
             for(int i = 1; i < lines.Length; i++) // skip header
             {
@@ -212,7 +234,14 @@ namespace feeder_parser
 
                     foreach(string matchDir in matchDirs)
                     {
-                        if (!File.Exists(Path.Combine(matchDir, HEADER_FILE))) continue;
+                        string headerFilePath = Path.Combine(matchDir, HEADER_FILE);
+                        if (!File.Exists(headerFilePath)) continue;
+
+                        // parse header file
+                        string[] headerLines = File.ReadAllLines(headerFilePath);
+                        int[] teamIds = headerLines[0].Split("-").Select(x => int.Parse(x.Trim())).ToArray();
+                        int[] teamScores = headerLines[1].Split("-").Select(x => int.Parse(x.Trim())).ToArray();
+                        InsertMatchRow(conn, week, teamIds[0], teamScores[0], teamIds[1], teamScores[1]);
 
                         string[] maps = weekToMaps[week].Select(GetMapString).ToArray();
                         string[] files = Directory.GetFiles(matchDir);
