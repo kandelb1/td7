@@ -10,7 +10,7 @@ namespace feeder_parser
     {
         public const string HEADER_FILE = "info.txt";
 
-        public static readonly string[] WEAPON_NAMES = ["rl", "lg", "rg", "gl", "pg", "mg", "hmg", "sg"];
+        public static readonly string[] WEAPON_NAMES = ["rl", "lg", "rg", "gl", "pg", "mg", "hmg", "sg", "gt"];
 
         public enum Map
         {
@@ -51,7 +51,8 @@ namespace feeder_parser
 
         public static string GenerateId(string input)
         {
-            const string allowedChars = "abcdefghjkpqrstwxyz23456789";
+            // tried to remove characters that look similar to each other
+            const string allowedChars = "abcdefghjkpqrstwxyz23456789"; 
 
             using(MD5 md5 = MD5.Create())
             {
@@ -128,10 +129,74 @@ namespace feeder_parser
             cmd.ExecuteNonQuery();
         }
 
+        public static void InsertPlayerRow(SqliteConnection conn, string name, string steamId, int teamId, bool isCaptain)
+        {
+            using SqliteCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "INSERT INTO players VALUES (@steamId, @name, @teamId, @isCaptain)";
+            cmd.Parameters.AddWithValue("@steamId", steamId);
+            cmd.Parameters.AddWithValue("@name", name);
+            cmd.Parameters.AddWithValue("@teamId", teamId);
+            cmd.Parameters.AddWithValue("@isCaptain", isCaptain);
+            cmd.ExecuteNonQuery();
+        }
+
+        public static void InsertTeamRow(SqliteConnection conn, int id, string name, string clanTag, int division)
+        {
+            using SqliteCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "INSERT INTO teams VALUES (@id, @name, @clanTag, @division)";
+            cmd.Parameters.AddWithValue("@id", id);
+            cmd.Parameters.AddWithValue("@name", name);
+            cmd.Parameters.AddWithValue("@clanTag", clanTag);
+            cmd.Parameters.AddWithValue("@division", division);
+            cmd.ExecuteNonQuery();
+        }
+
+        public static void InsertMapRow(SqliteConnection conn, int id, string name)
+        {
+            using SqliteCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "INSERT INTO maps VALUES (@id, @name)";
+            cmd.Parameters.AddWithValue("@id", id);
+            cmd.Parameters.AddWithValue("@name", name);
+            cmd.ExecuteNonQuery();
+        }
+
         static void Main(string[] args)
         {
             using SqliteConnection conn = new SqliteConnection("Data Source=C:\\Users\\Ben\\Programs\\td7\\feeder-parser\\stats.db");
             conn.Open();
+
+            var cmd = conn.CreateCommand();
+            cmd.CommandText = "DELETE FROM games; DELETE FROM pgstats; DELETE FROM pwstats; DELETE FROM playerNames; " +
+                "DELETE FROM players; DELETE FROM teams; DELETE FROM maps";
+            cmd.ExecuteNonQuery();
+            cmd.Dispose();
+
+            string fileDir = @"C:\Users\Ben\Programs\td7\feeder-parser";
+            string[] lines = File.ReadAllLines(Path.Combine(fileDir, "players.csv"));
+            for(int i = 1; i < lines.Length; i++) // skip header
+            {
+                string[] splitLine = lines[i].Split(",");
+                InsertPlayerRow(conn, splitLine[0], splitLine[1], int.Parse(splitLine[2]), bool.Parse(splitLine[3]));
+                //Console.WriteLine($"{i}: {splitLine[0]}");
+            }
+
+            lines = File.ReadAllLines(Path.Combine(fileDir, "teams.csv"));
+            for(int i = 1; i < lines.Length; i++) // skip header
+            {
+                string[] splitLine = lines[i].Split("|");
+                // TODO: add clanTag to teams.csv
+                InsertTeamRow(conn, int.Parse(splitLine[0]), splitLine[1], "WRONG_CLAN_TAG", int.Parse(splitLine[2]));
+                //Console.WriteLine($"{i}: {splitLine[1]}");
+            }
+
+            foreach(Map map in Enum.GetValues<Map>())
+            {
+                // TODO: get rid of this GetMapString nonsense
+                InsertMapRow(conn, (int)map, GetMapString(map));
+            }
+
+
+
             string baseDir = Path.Combine(AppContext.BaseDirectory, "data");
             Directory.CreateDirectory(baseDir);
             for(int div = 1; div <= 2; div++)
@@ -176,19 +241,19 @@ namespace feeder_parser
 
                             InsertGameRow(conn, gameId, serverId, mapId, gameEndTimestamp, map, week);
 
-                            foreach(PlayerStats stats in playerStats)
+                            foreach(PlayerStats pstats in playerStats)
                             {
-                                if (stats.SteamId == "0") continue;
-                                InsertPgStatsRow(conn, stats.SteamId, gameId, stats.Score, stats.Rank, stats.Damage.Dealt, stats.Damage.Taken, stats.Kills, stats.Deaths);
-                                InsertPlayerNameRow(conn, stats.SteamId, gameId, stats.Name);
-                                
+                                if (pstats.SteamId == "0") continue;
+                                InsertPgStatsRow(conn, pstats.SteamId, gameId, pstats.Score, pstats.Rank, pstats.Damage.Dealt, pstats.Damage.Taken, pstats.Kills, pstats.Deaths);
+                                InsertPlayerNameRow(conn, pstats.SteamId, gameId, pstats.Name);
 
-                                InsertPwStatsRow(conn, stats.SteamId, gameId, "rl", stats.Weapons.Rocket.Dg, )
-                                //foreach(WeaponStats weapon in stats.Weapons.GetWeapons())
-                                //{
-                                //    string test = nameof(weapon);
-                                //    Console.WriteLine(test);
-                                //}
+                                WeaponStats[] weaponStats = pstats.Weapons.GetWeapons();
+                                for(int i = 0; i < WEAPON_NAMES.Length; i++)
+                                {
+                                    WeaponStats weapon = weaponStats[i];
+                                    string weaponName = WEAPON_NAMES[i];
+                                    InsertPwStatsRow(conn, pstats.SteamId, gameId, weaponName, weapon.Dg, weapon.K, weapon.S, weapon.H);
+                                }
                             }
 
                         }

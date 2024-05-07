@@ -58,7 +58,8 @@ namespace feeder_parser
         public WeaponStats Rocket { get; set; }
         public WeaponStats Shotgun { get; set; }
 
-        public WeaponStats[] GetWeapons() => [Gauntlet, Grenade, Hmg, Lightning, Machinegun, Plasma, Railgun, Rocket, Shotgun];
+        //WEAPON_NAMES = ["rl", "lg", "rg", "gl", "pg", "mg", "hmg", "sg", "gt"];
+        public WeaponStats[] GetWeapons() => [Rocket, Lightning, Railgun, Grenade, Plasma, Machinegun, Hmg, Shotgun, Gauntlet];
     }
 
     public class PlayerStats
