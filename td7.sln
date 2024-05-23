@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34622.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "feeder-parser", "feeder-parser\feeder-parser.csproj", "{FE5F2C15-1E06-4C24-A7E6-448A16B938F6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "parser", "feeder-parser\parser.csproj", "{FE5F2C15-1E06-4C24-A7E6-448A16B938F6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "data-validator", "data-validator\data-validator.csproj", "{97A3D29F-C5D7-410C-BFA6-FB2AFC6BA921}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{FE5F2C15-1E06-4C24-A7E6-448A16B938F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FE5F2C15-1E06-4C24-A7E6-448A16B938F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FE5F2C15-1E06-4C24-A7E6-448A16B938F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97A3D29F-C5D7-410C-BFA6-FB2AFC6BA921}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97A3D29F-C5D7-410C-BFA6-FB2AFC6BA921}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97A3D29F-C5D7-410C-BFA6-FB2AFC6BA921}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97A3D29F-C5D7-410C-BFA6-FB2AFC6BA921}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,760 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <RootNamespace>feeder_parser</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Data.Sqlite" Version="8.0.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="data\div1\week10\myql vs kgb\info.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div1\week10\nama vs torrin\charon3dm13d-10to6-1713234228.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div1\week10\nama vs torrin\info.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div1\week10\nama vs torrin\servituderedux-5to10-1713235924.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div1\week10\nama vs torrin\uprise-6to10-1713235063.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div1\week11\kgb vs torrin\info.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div1\week11\mb vs snuffles\info.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div1\week11\myql vs raul\info.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div1\week1\mb vs myql\info.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div1\week1\raul vs torrin\asylum-10to7-1711327961.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div1\week1\raul vs torrin\campgrounds-10to3-1711326563.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div1\week1\raul vs torrin\info.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div1\week1\raul vs torrin\nohalls-3to10-1711328797.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div1\week1\raul vs torrin\ra3map20a-10to2-1711329181.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div1\week1\raul vs torrin\trinity-10to8-1711327294.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div1\week1\raul vs torrin\uprise-8to10-1711329944.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div1\week1\snuffles vs nama\info.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div1\week2\mb vs torrin\info.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div1\week2\nama vs myql\campgrounds-4to10-1713581461.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div1\week2\nama vs myql\charon3dm13d-10to9-1713580701.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div1\week2\nama vs myql\info.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div1\week2\nama vs myql\strain-2to10-1713579656.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div1\week2\snuffles vs kgb\campgrounds-10to7-1711328065.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div1\week2\snuffles vs kgb\charon3dm13d-3to10-1711327339.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div1\week2\snuffles vs kgb\info.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div1\week2\snuffles vs kgb\strain-9to10-1711326713.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div1\week3\kgb vs myql\asylum-4to10-1714532565.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div1\week3\kgb vs myql\charon3dm13d-7to10-1714531882.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div1\week3\kgb vs myql\info.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div1\week3\kgb vs myql\ra3map20a-10to7-1714536463.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div1\week3\kgb vs myql\trinity-2to10-1714533224.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div1\week3\nama vs torrin\info.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div1\week3\raul vs snuffles\info.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div1\week4\kgb vs mb\asylum-10to6-1713320629.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div1\week4\kgb vs mb\campgrounds-6to10-1713324740.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div1\week4\kgb vs mb\charon3dm13d-8to10-1713326451.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div1\week4\kgb vs mb\info.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div1\week4\kgb vs mb\strain-0to10-1713326986.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div1\week4\kgb vs mb\trinity-10to3-1713323925.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div1\week4\kgb vs mb\uprise-10to4-1713323187.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div1\week4\mb vs torrin\info.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div1\week4\myql vs raul\info.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div1\week5\nama vs kgb\info.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div1\week5\raul vs mb\info.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div1\week5\torrin vs myql\asylum-10to7-1713578706.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div1\week5\torrin vs myql\campgrounds-10to6-1713576155.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div1\week5\torrin vs myql\charon3dm13d-9to10-1713575189.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div1\week5\torrin vs myql\info.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div1\week5\torrin vs myql\ra3map20a-9to10-1713574211.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div1\week5\torrin vs myql\servituderedux-3to10-1713576959.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div1\week6\mb vs kgb\info.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div1\week6\nama vs raul\info.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div1\week6\torrin vs snuffles\asylum-10to0-1711243644.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div1\week6\torrin vs snuffles\info.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div1\week6\torrin vs snuffles\ra3map17c-10to7-1711242274.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div1\week6\torrin vs snuffles\strain-9to10-1711243189.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div1\week7\kgb vs raul\info.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div1\week7\nama vs mb\info.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div1\week7\snuffles vs myql\info.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div1\week8\myql vs mb\campgrounds-10to8-1710986897.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div1\week8\myql vs mb\charon3dm13d-10to9-1710988246.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div1\week8\myql vs mb\info.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div1\week8\myql vs mb\servituderedux-10to5-1710985890.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div1\week8\myql vs mb\trinity-8to10-1710984321.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div1\week8\myql vs mb\uprise-7to10-1710985209.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div1\week8\snuffles vs nama\asylum-5to10-1713671588.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div1\week8\snuffles vs nama\campgrounds-1to10-1713669986.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div1\week8\snuffles vs nama\charon3dm13d-5to10-1713670904.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div1\week8\snuffles vs nama\info.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div1\week8\torrin vs raul\info.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div1\week9\kgb vs torrin\info.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div1\week9\snuffles vs kgb\asylum-7to10-1713150796.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div1\week9\snuffles vs kgb\info.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div1\week9\snuffles vs kgb\nohalls-10to3-1713148965.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div1\week9\snuffles vs kgb\quarantine-7to10-1713149884.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div1\week9\snuffles vs kgb\ra3map17c-7to10-1713151361.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div1\week9\snuffles vs kgb\strain-5to10-1713151853.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week10\deathrow vs z0\asylum-4to10-1712197210.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week10\deathrow vs z0\charon3dm13d-10to4-1712193261.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week10\deathrow vs z0\info.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week10\deathrow vs z0\nohalls-10to7-1712195737.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week10\deathrow vs z0\servituderedux-4to10-1712194825.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week10\deathrow vs z0\strain-10to9-1712196403.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week10\deathrow vs z0\uprise-10to2-1712193883.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week10\lanf3ust vs napalm\info.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week10\minion vs rehash\asylum-10to6-1712025958.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week10\minion vs rehash\charon3dm13d-10to3-1712021806.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week10\minion vs rehash\info.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week10\minion vs rehash\nohalls-10to2-1712024158.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week10\minion vs rehash\servituderedux-4to10-1712023527.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week10\minion vs rehash\strain-9to10-1712024895.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week10\minion vs rehash\uprise-10to7-1712022705.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week10\vigilante vs lampyre\asylum-10to3-1713148855.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week10\vigilante vs lampyre\charon3dm13d-10to6-1713144599.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week10\vigilante vs lampyre\info.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week10\vigilante vs lampyre\nohalls-10to3-1713147406.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week10\vigilante vs lampyre\servituderedux-9to10-1713146626.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week10\vigilante vs lampyre\strain-10to4-1713148164.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week10\vigilante vs lampyre\uprise-10to9-1713145661.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week11\lampyre vs deathrow\info.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week11\napalm vs minions\info.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week11\rehash vs vetch\info.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week11\z0 vs lanf3ust\info.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week1\napalm vs lanf3ust\info.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week1\rehash vs minions\asylum-10to5-1711503805.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week1\rehash vs minions\campgrounds-10to9-1711502183.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week1\rehash vs minions\info.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week1\rehash vs minions\nohalls-8to10-1711504753.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week1\rehash vs minions\ra3map20a-6to10-1711505440.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week1\rehash vs minions\trinity-6to10-1711503054.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week1\rehash vs minions\uprise-10to9-1711506459.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week1\vigilante vs lampyre\info.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week1\z0 vs deathrow\asylum-4to10-1710987742.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week1\z0 vs deathrow\campgrounds-10to8-1710986108.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week1\z0 vs deathrow\info.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week1\z0 vs deathrow\nohalls-10to7-1710988642.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week1\z0 vs deathrow\ra3map20a-7to10-1710989250.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week1\z0 vs deathrow\trinity-7to10-1710987096.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week1\z0 vs deathrow\uprise-5to10-1710990226.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week2\lanf3ust vs deathrow\info.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week2\minions vs lampyre\info.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week2\rehash vs vigilante\info.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week2\vetch vs z0\charon3dm13d-9to10-1714098004.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week2\vetch vs z0\info.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week2\vetch vs z0\nohalls-10to6-1714100307.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week2\vetch vs z0\servituderedux-7to10-1714101317.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week2\vetch vs z0\strain-10to7-1714096723.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week2\vetch vs z0\trinity-9to10-1714102522.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week3\deathrow vs minions\info.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week3\lanf3ust vs vetch\asylum-10to2-1708746267.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week3\lanf3ust vs vetch\charon3dm13d-10to5-1708745270.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week3\lanf3ust vs vetch\info.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week3\lanf3ust vs vetch\ra3map20a-7to10-1708749386.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week3\lanf3ust vs vetch\servituderedux-10to6-1708748077.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week3\lanf3ust vs vetch\trinity-10to4-1708747123.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week3\lanf3ust vs vetch\uprise-10to2-1708748660.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week3\napalm vs lampyre\asylum-4to10-1710043466.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week3\napalm vs lampyre\charon3dm13d-10to6-1710042710.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week3\napalm vs lampyre\info.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week3\napalm vs lampyre\ra3map20a-2to10-1710046901.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week3\napalm vs lampyre\servituderedux-6to10-1710045523.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week3\napalm vs lampyre\trinity-10to9-1710044447.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week3\napalm vs lampyre\uprise-10to3-1710046257.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week3\z0 vs vigilante\info.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week4\deathrow vs vigilante\info.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week4\lampyre vs rehash\info.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week4\minions vs z0\asylum-10to2-1714532012.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week4\minions vs z0\campgrounds-10to5-1714531218.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week4\minions vs z0\charon3dm13d-7to10-1714533147.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week4\minions vs z0\info.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week4\minions vs z0\strain-3to10-1714533710.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week4\minions vs z0\trinity-10to4-1714530338.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week4\minions vs z0\uprise-10to1-1714529747.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week4\napalm vs vetch\info.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week5\deathrow vs napalm\info.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week5\lanf3ust vs rehash\info.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week5\vetch vs lampyre\asylum-6to10-1713753948.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week5\vetch vs lampyre\campgrounds-5to10-1713751247.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week5\vetch vs lampyre\charon3dm13d-5to10-1713750289.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week5\vetch vs lampyre\info.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week5\vetch vs lampyre\ra3map20a-8to10-1713749436.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week5\vetch vs lampyre\servituderedux-10to8-1713752045.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week5\vetch vs lampyre\trinity-5to10-1713752957.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week5\vigilante vs minions\info.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week6\lampyre vs deathrow\asylum-10to9-1710125209.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week6\lampyre vs deathrow\info.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week6\lampyre vs deathrow\quarantine-9to10-1710127489.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week6\lampyre vs deathrow\ra3map17c-10to2-1710123976.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week6\lampyre vs deathrow\ra3map19c-10to7-1710125973.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week6\lampyre vs deathrow\ra3map20a-9to10-1710126640.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week6\lampyre vs deathrow\strain-0to10-1710124418.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week6\lanf3ust vs z0\info.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week6\minions vs napalm\info.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week6\vetch vs rehash\asylum-5to10-1713320108.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week6\vetch vs rehash\info.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week6\vetch vs rehash\quarantine-9to10-1713322723.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week6\vetch vs rehash\ra3map17c-9to10-1713318748.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week6\vetch vs rehash\ra3map19c-10to5-1713321036.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week6\vetch vs rehash\ra3map20a-10to3-1713321767.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week6\vetch vs rehash\strain-2to10-1713319454.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week7\lampyre vs z0\info.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week7\lampyre vs z0\ra3map20a-8to10-1712288632.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week7\lampyre vs z0\servituderedux-10to4-1712287791.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week7\lampyre vs z0\uprise-10to3-1712287081.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week7\lanf3ust vs vigilante\campgrounds-6to10-1710294979.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week7\lanf3ust vs vigilante\charon3dm13d-8to10-1710296887.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week7\lanf3ust vs vigilante\info.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week7\lanf3ust vs vigilante\ra3map20a-10to1-1710299488.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week7\lanf3ust vs vigilante\servituderedux-10to9-1710298956.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week7\lanf3ust vs vigilante\trinity-10to2-1710295901.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week7\lanf3ust vs vigilante\uprise-10to6-1710297928.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week7\minions vs vetch\campgrounds-10to2-1711159590.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week7\minions vs vetch\charon3dm13d-6to10-1711161301.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week7\minions vs vetch\info.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week7\minions vs vetch\ra3map20a-10to9-1711164203.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week7\minions vs vetch\servituderedux-6to10-1711163431.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week7\minions vs vetch\trinity-3to10-1711160372.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week7\minions vs vetch\uprise-7to10-1711162447.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week7\rehash vs napalm\charon3dm13d-10to8-1710728554.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week7\rehash vs napalm\info.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week7\rehash vs napalm\ra3map20a-5to10-1710730899.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week7\rehash vs napalm\servituderedux-5to10-1710730116.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week7\rehash vs napalm\trinity-7to10-1710727703.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week7\rehash vs napalm\uprise-5to10-1710729342.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week8\deathrow vs vetch\asylum-10to8-1709786369.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week8\deathrow vs vetch\campgrounds-5to10-1709784707.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week8\deathrow vs vetch\charon3dm13d-10to4-1709785422.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week8\deathrow vs vetch\info.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week8\deathrow vs vetch\servituderedux-10to4-1709783895.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week8\deathrow vs vetch\trinity-10to9-1709781933.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week8\deathrow vs vetch\uprise-10to2-1709782693.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week8\lampyre vs lanf3ust\asylum-9to10-1710994402.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week8\lampyre vs lanf3ust\campgrounds-9to10-1710992571.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week8\lampyre vs lanf3ust\charon3dm13d-7to10-1710993594.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week8\lampyre vs lanf3ust\info.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week8\lampyre vs lanf3ust\servituderedux-10to6-1710991084.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week8\lampyre vs lanf3ust\trinity-8to10-1710989114.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week8\lampyre vs lanf3ust\uprise-10to6-1710990025.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week8\vigilante vs napalm\asylum-10to4-1710645607.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week8\vigilante vs napalm\campgrounds-10to8-1710643839.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week8\vigilante vs napalm\charon3dm13d-10to7-1710644729.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week8\vigilante vs napalm\info.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week8\vigilante vs napalm\servituderedux-10to8-1710642664.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week8\vigilante vs napalm\trinity-6to10-1710640617.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week8\vigilante vs napalm\uprise-10to8-1710641667.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week8\z0 vs rehash\asylum-10to9-1710473316.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week8\z0 vs rehash\campgrounds-5to10-1710470832.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week8\z0 vs rehash\charon3dm13d-9to10-1710472173.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week8\z0 vs rehash\info.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week8\z0 vs rehash\servituderedux-10to6-1710469639.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week8\z0 vs rehash\trinity-10to3-1710467805.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week8\z0 vs rehash\uprise-5to10-1710468683.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week9\minions vs lanf3ust\info.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week9\napalm vs z0\info.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week9\napalm vs z0\nohalls-6to10-1711162324.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week9\napalm vs z0\quarantine-6to10-1711163172.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week9\napalm vs z0\ra3map19c-8to10-1711161438.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week9\rehash vs deathrow\info.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week9\vigilante vs vetch\asylum-7to10-1713664753.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week9\vigilante vs vetch\info.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week9\vigilante vs vetch\nohalls-10to5-1713662949.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week9\vigilante vs vetch\quarantine-10to8-1713663946.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week9\vigilante vs vetch\ra3map17c-3to10-1713665295.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week9\vigilante vs vetch\ra3map19c-10to0-1713662227.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\div2\week9\vigilante vs vetch\strain-10to2-1713665841.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="stats.db">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="data\div1\week10\raul vs snuffles\" />
+  </ItemGroup>
+
+</Project>

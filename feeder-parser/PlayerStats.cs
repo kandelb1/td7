@@ -60,6 +60,19 @@ namespace feeder_parser
 
         //WEAPON_NAMES = ["rl", "lg", "rg", "gl", "pg", "mg", "hmg", "sg", "gt"];
         public WeaponStats[] GetWeapons() => [Rocket, Lightning, Railgun, Grenade, Plasma, Machinegun, Hmg, Shotgun, Gauntlet];
+        
+        public void SetWeapons(WeaponStats[] weapons)
+        {
+            Rocket = weapons[0];
+            Lightning = weapons[1];
+            Railgun = weapons[2];
+            Grenade = weapons[3];
+            Plasma = weapons[4];
+            Machinegun = weapons[5];
+            Hmg = weapons[6];
+            Shotgun = weapons[7];
+            Gauntlet = weapons[8];
+        }
     }
 
     public class PlayerStats
@@ -67,18 +80,16 @@ namespace feeder_parser
         public Damage Damage { get; set; }
         public int Deaths { get; set; }
         public int Kills { get; set; }
-
-        [JsonPropertyName("MATCH_GUID")]
-        public string MatchGuid { get; set; }
-        public Medals Medals { get; set; }
-        public string Model { get; set; }
+        public Medals? Medals { get; set; } // maybe ill use it
         public string Name { get; set; }
         public int Rank { get; set; }
         public int Score { get; set; }
-
         [JsonPropertyName("STEAM_ID")]
         public string SteamId { get; set; }
-        public int Team { get; set; }
+        public string PlayerId { get; set; } // set by us
+        public int Team { get; set; } // red 1, blue 2
         public Weapons Weapons { get; set; }
+        public int Win { get; set; }
+        public int Lose { get; set; }
     }
 }
